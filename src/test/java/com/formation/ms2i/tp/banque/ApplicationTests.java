@@ -1,7 +1,7 @@
 package com.formation.ms2i.tp.banque;
 
 import com.formation.ms2i.tp.banque.entities.Client;
-import com.formation.ms2i.tp.banque.services.ClientService;
+import com.formation.ms2i.tp.banque.repository.ClientRepository;
 import junit.framework.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -19,11 +19,11 @@ class ApplicationTests {
 	static class ClientServiceUnitTest {
 
 		@Autowired
-		private ClientService clientService;
+		private ClientRepository clientRepository;
 
 		@Test
 		void whenApplicationStarts_thenHibernateCreatesInitialRecords() {
-			List<Client> clients = clientService.list();
+			List<Client> clients = clientRepository.findAll();
 			Assert.assertEquals(clients.size(), 2);
 		}
 	}

@@ -3,91 +3,114 @@ package com.formation.ms2i.tp.banque.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name="client")
+@Table(name = "client")
 public class Client {
 
-	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
-	@Column(name="id")
-	private long id;
+    public Client() {
+    }
 
-	@Column(name="prenom")
-	private String prenom;
+    public Client(String nom, String prenom, String adresse, String ville, String codepostal, String motdepasse) {
+        super();
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.adresse = adresse;
+        this.ville = ville;
+        this.codepostal = codepostal;
+        this.motdepasse = motdepasse;
+    }
 
-	@Column(name="nom")
-	private String nom;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
+    private long id;
 
-	@Column(name="adresse")
-	private String adresse;
+    @Column(name = "prenom")
+    private String prenom;
 
-	@Column(name="codepostal")
-	private String codepostal;
+    @Column(name = "nom")
+    private String nom;
 
-	@Column(name="ville")
-	private String ville;
+    @Column(name = "adresse")
+    private String adresse;
 
-	@Column(name="motdepasse")
-	private String motdepasse;
+    @Column(name = "codepostal")
+    private String codepostal;
 
-	public long getId() {
-		return id;
-	}
+    @Column(name = "ville")
+    private String ville;
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    @Column(name = "motdepasse")
+    private String motdepasse;
 
-	public String getPrenom() {
-		return prenom;
-	}
+    public long getId() {
+        return id;
+    }
 
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	public String getNom() {
-		return nom;
-	}
+    public String getPrenom() {
+        return prenom;
+    }
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
 
-	public String getAdresse() {
-		return adresse;
-	}
+    public String getNom() {
+        return nom;
+    }
 
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
-	}
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 
-	public String getCodepostal() {
-		return codepostal;
-	}
+    public String getAdresse() {
+        return adresse;
+    }
 
-	public void setCodepostal(String codepostal) {
-		this.codepostal = codepostal;
-	}
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
 
-	public String getVille() {
-		return ville;
-	}
+    public String getCodepostal() {
+        return codepostal;
+    }
 
-	public void setVille(String ville) {
-		this.ville = ville;
-	}
+    public void setCodepostal(String codepostal) {
+        this.codepostal = codepostal;
+    }
 
-	public String getMotdepasse() {
-		return motdepasse;
-	}
+    public String getVille() {
+        return ville;
+    }
 
-	public void setMotdepasse(String motdepasse) {
-		this.motdepasse = motdepasse;
-	}
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
 
+    public String getMotdepasse() {
+        return motdepasse;
+    }
 
+    public void setMotdepasse(String motdepasse) {
+        this.motdepasse = motdepasse;
+    }
 
-
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", prenom='" + prenom + '\'' +
+                ", nom='" + nom + '\'' +
+                ", adresse='" + adresse + '\'' +
+                ", codepostal='" + codepostal + '\'' +
+                ", ville='" + ville + '\'' +
+                ", motdepasse='" + motdepasse + '\'' +
+                '}';
+    }
 
 
 }

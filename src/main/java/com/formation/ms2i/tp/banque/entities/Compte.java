@@ -7,7 +7,8 @@ import javax.persistence.*;
 public class Compte {
 
 	@Id
-	@Column(name="numero")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "numero", unique = true, nullable = false)
 	private long numero;
 
 	@Column(name="solde")
@@ -16,6 +17,13 @@ public class Compte {
 	@ManyToOne(targetEntity=Client.class)
 	@JoinColumn(name="idclient")
 	private Client client;
+
+	public Compte(double solde) {
+		this.solde = solde;
+	}
+
+	public Compte() {
+	}
 
 	public long getNumero() {
 		return numero;
