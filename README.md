@@ -1,14 +1,14 @@
 # banque-spring
 Une petite application bancaire réalisée sur le framework JAVA spring - TP .Net - Marc Flavius
 ## Installation
-###Step 1
+### Step 1
 Dans Eclipse ou Spring Tool Suite
 importer le projet avec la commande Import > Existing Maven Projects.
-###Step 2
+### Step 2
 Ouvrir le fichier src/main/java/...tp.banque/Application.java
 et exécuter Run As > Java Application
 
-##Problèmes éventuels
+## Problèmes éventuels
 1. Le port 8080 est déjà pris par un autre processus.
 
 ## Autre
