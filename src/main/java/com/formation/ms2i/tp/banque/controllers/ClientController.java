@@ -5,17 +5,15 @@ import com.formation.ms2i.tp.banque.entities.Compte;
 import com.formation.ms2i.tp.banque.repository.ClientRepository;
 import com.formation.ms2i.tp.banque.repository.CompteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 public class ClientController {
-
     @Autowired
     ClientRepository clientRepository;
 
@@ -27,16 +25,19 @@ public class ClientController {
         return clientRepository.findAll();
     }
 
-    @PostMapping("/clients")
-    public Object createClient(@RequestBody Client client) {
+    @PostMapping("/clients/{id}/compte")
+    public void createClient(@RequestBody Compte newAccount, @PathVariable long id) {
+        Optional<Client> client = clientRepository.findById(id);
+        if (client.isPresent()) {
+            client.get().addComptes(new HashSet(Arrays.asList(newAccount)));
+            clientRepository.save(client.get());
+        }
+    }
 
-        Compte compte = new Compte(0);
+    @PostMapping("/clients/{solde}")
+    public Object createClient(@RequestBody Client client,@PathVariable long solde) {
+        client.addComptes(new HashSet(Arrays.asList(new Compte(solde))));
         clientRepository.save(client);
-        compte.setClient(client);
-        compteRepository.save(compte);
-        return new Object() {
-            public final long numerocompte = compte.getNumero();
-        };
-
+        return client;
     }
 }

@@ -1,108 +1,116 @@
 package com.formation.ms2i.tp.banque.entities;
 
+import java.util.HashSet;
+import java.util.List;
 import javax.persistence.*;
+import java.awt.*;
+import java.util.Set;
 
 @Entity
-@Table(name = "client")
+@Table(name = "clients")
 public class Client {
+    private static final long serialVerisonUID = 1L;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn
+    private Set<Compte> comptes = new HashSet<Compte>();
+
 
     public Client() {
     }
 
-    public Client(String nom, String prenom, String adresse, String ville, String codepostal, String motdepasse) {
-        super();
-        this.nom = nom;
-        this.prenom = prenom;
-        this.adresse = adresse;
-        this.adresse = adresse;
-        this.ville = ville;
-        this.codepostal = codepostal;
-        this.motdepasse = motdepasse;
-    }
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", unique = true, nullable = false)
-    private long id;
-
-    @Column(name = "prenom")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String prenom;
-
-    @Column(name = "nom")
     private String nom;
-
-    @Column(name = "adresse")
     private String adresse;
-
-    @Column(name = "codepostal")
     private String codepostal;
-
-    @Column(name = "ville")
     private String ville;
-
-    @Column(name = "motdepasse")
     private String motdepasse;
 
-    public long getId() {
-        return id;
+
+    public Set<Compte> getComptes() {
+        return comptes;
     }
 
-    public void setId(long id) {
+    public Client addComptes(Set<Compte> comptes) {
+        this.comptes.addAll(comptes);
+        return this;
+    }
+
+
+    public Client setId(Long id) {
         this.id = id;
+        return this;
+    }
+
+    public Client setPrenom(String prenom) {
+        this.prenom = prenom;
+        return this;
+    }
+
+    public Client setNom(String nom) {
+        this.nom = nom;
+        return this;
+    }
+
+    public Client setAdresse(String adresse) {
+        this.adresse = adresse;
+        return this;
+    }
+
+    public Client setCodepostal(String codepostal) {
+        this.codepostal = codepostal;
+        return this;
+    }
+
+    public Client setVille(String ville) {
+        this.ville = ville;
+        return this;
+    }
+
+    public Client setMotdepasse(String motdepasse) {
+        this.motdepasse = motdepasse;
+        return this;
+    }
+
+    public static long getSerialVerisonUID() {
+        return serialVerisonUID;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getPrenom() {
         return prenom;
     }
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
     public String getNom() {
         return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
     }
 
     public String getAdresse() {
         return adresse;
     }
 
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-
     public String getCodepostal() {
         return codepostal;
-    }
-
-    public void setCodepostal(String codepostal) {
-        this.codepostal = codepostal;
     }
 
     public String getVille() {
         return ville;
     }
 
-    public void setVille(String ville) {
-        this.ville = ville;
-    }
-
     public String getMotdepasse() {
         return motdepasse;
-    }
-
-    public void setMotdepasse(String motdepasse) {
-        this.motdepasse = motdepasse;
     }
 
     @Override
     public String toString() {
         return "Client{" +
-                "id=" + id +
+                ", id=" + id +
                 ", prenom='" + prenom + '\'' +
                 ", nom='" + nom + '\'' +
                 ", adresse='" + adresse + '\'' +
@@ -111,6 +119,4 @@ public class Client {
                 ", motdepasse='" + motdepasse + '\'' +
                 '}';
     }
-
-
 }

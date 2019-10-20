@@ -10,9 +10,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <body>
-<div class="jumbotron text-center">
+<div class=" text-center">
     <h1>Banque</h1>
     <p>Gestion</p>
 </div>
-<%@ include file="modal/modal.jsp" %>
+<jsp:useBean id="clients" scope="request" type="java.util.List" />
+<%@ include file="new-user-modal/modal.jsp" %>
+<%@ include file="new-account-modal/modal.jsp" %>
+<%@ include file="deposit-on-account-modal/modal.jsp" %>
 

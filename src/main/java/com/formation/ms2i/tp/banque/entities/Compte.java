@@ -3,49 +3,65 @@ package com.formation.ms2i.tp.banque.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name="compte")
+@Table(name = "comptes")
 public class Compte {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private double solde;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "numero", unique = true, nullable = false)
-	private long numero;
+    private int user_id;
 
-	@Column(name="solde")
-	private double solde;
+    public Compte() {
+    }
 
-	@ManyToOne(targetEntity=Client.class)
-	@JoinColumn(name="idclient")
-	private Client client;
+    public Compte(Long solde) {
+        this.solde = solde;
+    }
 
-	public Compte(double solde) {
-		this.solde = solde;
-	}
+    public int getUser_id() {
+        return user_id;
+    }
 
-	public Compte() {
-	}
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
 
-	public long getNumero() {
-		return numero;
-	}
 
-	public void setNumero(long numero) {
-		this.numero = numero;
-	}
+    public Compte setId(Long id) {
+        this.id = id;
+        return this;
+    }
 
-	public double getSolde() {
-		return solde;
-	}
+    public Compte setSolde(double solde) {
+        this.solde = solde;
+        return this;
+    }
 
-	public void setSolde(double solde) {
-		this.solde = solde;
-	}
+    public Compte credit(double amount) {
+        this.solde += amount;
+        return this;
+    }
+    public Compte debit(double amount) {
+        this.solde -= amount;
+        return this;
+    }
 
-	public Client getClient() {
-		return client;
-	}
 
-	public void setClient(Client client) {
-		this.client = client;
-	}
+    public Long getId() {
+        return id;
+    }
+
+    public double getSolde() {
+        return solde;
+    }
+
+    @Override
+    public String toString() {
+        return "Compte{" +
+                "id=" + id +
+                ", solde=" + solde +
+                ", user_id=" + user_id +
+                '}';
+    }
 }
