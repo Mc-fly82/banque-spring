@@ -1,5 +1,5 @@
 # banque-spring
-Une petite application bancaire réalisée sur le framework JAVA spring - TP .Net - Marc Flavius
+Une petite application bancaire réalisée sur le framework JAVA spring - TP .J2E - Marc Flavius
 ## Installation
 ### Step 1
 Dans Eclipse ou Spring Tool Suite
