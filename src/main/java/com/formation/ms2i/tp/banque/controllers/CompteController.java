@@ -1,15 +1,15 @@
 package com.formation.ms2i.tp.banque.controllers;
 
-import com.formation.ms2i.tp.banque.entities.Client;
 import com.formation.ms2i.tp.banque.entities.Compte;
-import com.formation.ms2i.tp.banque.request.TransferRequest;
 import com.formation.ms2i.tp.banque.repository.ClientRepository;
 import com.formation.ms2i.tp.banque.repository.CompteRepository;
+import com.formation.ms2i.tp.banque.request.TransferRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,13 +22,13 @@ public class CompteController {
     @Autowired
     ClientRepository clientRepository;
 
-
+    //list all
     @GetMapping("/comptes")
     public List<Compte> allComptes() {
         return compteRepository.findAll();
     }
 
-
+    //wiretransfer
     @PostMapping("/comptes/virement")
     public void transfer(@RequestBody TransferRequest transfer) {
         System.out.println(transfer);

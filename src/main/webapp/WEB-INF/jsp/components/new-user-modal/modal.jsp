@@ -39,7 +39,8 @@
                     </div>
                     <div class="form-group">
                         <label for="solde">Dépot</label>
-                        <input required type="number" class="form-control" name="solde" id="solde" placeholder="">
+                        <input value="500" required type="number" class="form-control" name="solde" id="solde"
+                               placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="motdepasse">Mot de passe</label>

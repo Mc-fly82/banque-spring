@@ -24,26 +24,5 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Client client = new Client();
-        Compte compte1 = new Compte();
-        Compte compte2 = new Compte();
-        Compte compte3 = new Compte();
-
-
-        compte1.setSolde(5000);
-        compte2.setSolde(5000);
-
-        client.setAdresse("zzz")
-                .setCodepostal("1111")
-                .setNom("marc")
-                .setPrenom("flavisus")
-                .setVille("mont")
-                .addComptes(new HashSet(Arrays.asList(compte1,compte2)))
-                .addComptes(new HashSet(Arrays.asList(compte3)));
-
-
-        clientRepository.save(client);
-        System.out.println(compteRepository.findAll());;
-        System.out.println(compteRepository.findById( compte3.getId()));;
     }
 }

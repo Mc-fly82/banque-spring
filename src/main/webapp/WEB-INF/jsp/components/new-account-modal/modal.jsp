@@ -13,8 +13,9 @@
             <form id="modalSubmit">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="nom">Dépot</label>
-                        <input required type="text" class="form-control" name="nom" id="nom"
+                        <label for="added-account-deposit">Dépot</label>
+                        <input value="500" required type="number" class="form-control" name="addedAccountDeposit"
+                                id="added-account-deposit"
                                placeholder="">
                     </div>
                 </div>
@@ -22,7 +23,8 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
 
                     <!-- Create User -->
-                    <button id="new-account-modal-submit" style="border-radius: 0" type="submit" class="btn btn-primary"
+                    <button data-id="${c.getId()}" id="new-account-modal-submit" style="border-radius: 0" type="submit"
+                             class="btn btn-primary"
                             data-dismiss="modal">Créer</button>
                 </div>
             </form>

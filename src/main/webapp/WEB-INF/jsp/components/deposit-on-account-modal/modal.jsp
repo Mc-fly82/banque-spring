@@ -13,8 +13,8 @@
             <form id="modalSubmit">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="nom">Somme</label>
-                        <input required type="text" class="form-control" name="nom" id="nom"
+                        <label for="depot">Somme</label>
+                        <input value="500" required type="number" class="form-control" name="nom" id="depot"
                                placeholder="">
                     </div>
                 </div>
@@ -22,9 +22,8 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
 
                     <!-- Create User -->
-                    <button id="deposit-on-account-modal-submit" type="submit" class="btn btn-primary"
-                            data-dismiss="modal">Cr
-                        éer</button>
+                    <button data-id="${c.getId()}" id="deposit-on-account-modal-submit" type="submit" class="btn btn-primary"
+                            data-dismiss="modal">Soumettre</button>
                 </div>
             </form>
         </div>

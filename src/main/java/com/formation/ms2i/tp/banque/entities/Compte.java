@@ -15,7 +15,7 @@ public class Compte {
     public Compte() {
     }
 
-    public Compte(Long solde) {
+    public Compte(double solde) {
         this.solde = solde;
     }
 

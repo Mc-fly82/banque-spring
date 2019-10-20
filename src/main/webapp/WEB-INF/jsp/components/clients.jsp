@@ -44,7 +44,17 @@
                 <td class="th-w"></td>
                 <td class="th-w"></td>
                 <td class="th-w-10"></td>
-                <td class="th-w-15"><%@ include file="new-account-modal/modal-trigger.jsp" %></td>
+                <td class="th-w-15">
+                    <div class="d-flex flex-row-reverse bg-secondary">
+                        <!-- Button trigger modal -->
+                        <button  type="button" class="btn btn-primary add-account" data-toggle="modal"
+                                data-client-id="${c.getId()}"
+                                style="border-radius: 0"
+                                data-target="#addAccount">
+                            Ouvrir un compte
+                        </button>
+                    </div>
+                </td>
             </tr>
             <c:forEach items="${c.comptes}" var="co">
                 <tr>
@@ -57,7 +67,17 @@
                     <td class="th-w"></td>
                     <td class="th-w"> ${co.getId()}</td>
                     <td class="th-w-10">${co.getSolde()} €</td>
-                    <td class="th-w-15"><%@ include file="deposit-on-account-modal/modal-trigger.jsp" %></td>
+                    <td class="th-w-15">
+                        <div class="d-flex flex-row-reverse bg-secondary">
+                            <!-- Button trigger modal -->
+                            <button class="depot" data-account-id="${co.getId()}" data-client-id="${c.getId()}"
+                                    type="button"
+                                    data-toggle="modal"
+                                    data-target="#accountDeposit">
+                                Dépot
+                            </button>
+                        </div>
+                    </td>
                 </tr>
             </c:forEach>
         </c:forEach>
