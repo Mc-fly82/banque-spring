@@ -1,7 +1,4 @@
--- décommenter pour générer des entrer au démarage de l'application
+-- Pour générer des entrer au démarage de l'application décommenter les lignes dans tp.banque/src/main/resources/import.sql
 
--- insert into client values (1,'27 rue victor','82000', '123456','valentin', 'paul', 'montauban')
--- insert into client values (2, '27 rue grace', '31000','123456','garcia','dylan', 'toulouse');
--- insert into compte values (0,20000,1);
--- insert into compte values (1,20000,1);
--- insert into compte values (2,500000,2);
+-- insert into clients values (0,'27 rue victor','82000', '123456','valentin', 'paul', 'montauban')
+-- insert into clients values (1, '27 rue grace', '31000','123456','garcia','dylan', 'toulouse')

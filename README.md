@@ -14,7 +14,7 @@ et exécuter Run As > Java Application
 ## Autre
 Pour se connecter à la base de données par un GUI
 aller à http://localhost:8080/h2-console
-identifiants (Password est vie).
+identifiants (Password est vide).
 * Driver: org.h2.Driver
 * JDBC URL: jdbc:h2:mem:testdb
 * User Name: sa
