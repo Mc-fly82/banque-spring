@@ -8,10 +8,7 @@ import com.formation.ms2i.tp.banque.request.ClientDepositRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 public class ClientController {
@@ -21,16 +18,10 @@ public class ClientController {
     @Autowired
     CompteRepository compteRepository;
 
-    //list all
-    @GetMapping("/clients")
-    public List<Client> allClients() {
-        return clientRepository.findAll();
-    }
-
     //add client
     @PostMapping("/clients/{solde}")
     public void createClient(@RequestBody Client client, @PathVariable double solde) {
-        client.addComptes(new HashSet(Arrays.asList(new Compte(solde))));
+        client.addComptes(new HashSet<>(Collections.singletonList(new Compte(solde))));
         clientRepository.save(client);
     }
 
@@ -47,10 +38,10 @@ public class ClientController {
 
     //add account
     @PostMapping("/clients/{id}/compte")
-    public void createClient(@RequestBody ClientDepositRequest deposit, @PathVariable long id) {
+    public void createClient(@RequestBody ClientDepositRequest newAccount, @PathVariable long id) {
         Optional<Client> client = clientRepository.findById(id);
         if (client.isPresent()) {
-            client.get().addComptes(new HashSet(Arrays.asList(new Compte(Math.abs(deposit.deposit)))));
+            client.get().addComptes(new HashSet<>(Collections.singletonList(new Compte(Math.abs(newAccount.deposit)))));
             clientRepository.save(client.get());
         }
     }

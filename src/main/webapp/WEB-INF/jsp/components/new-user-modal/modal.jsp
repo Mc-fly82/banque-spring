@@ -51,7 +51,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
 
-                    <!-- Create User -->
+                    <!-- new client -->
                     <button id="modal-submit" type="submit"  class="btn btn-primary" data-dismiss="modal">Créer</button>
                 </div>
             </form>

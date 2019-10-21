@@ -36,7 +36,7 @@
 		if (Object.keys(data).some(function (_) {
 			return data[_] === ""
 		})) {
-			alert('Un ou plusieur champs vide')
+			alert('Un ou plusieurs champs vide')
 			return
 		}
 

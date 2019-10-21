@@ -22,7 +22,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
 
-                    <!-- Create User -->
+                    <!-- new account -->
                     <button data-id="${c.getId()}" id="new-account-modal-submit" style="border-radius: 0" type="submit"
                              class="btn btn-primary"
                             data-dismiss="modal">Créer</button>

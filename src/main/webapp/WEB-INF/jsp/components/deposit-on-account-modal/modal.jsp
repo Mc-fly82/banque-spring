@@ -21,7 +21,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
 
-                    <!-- Create User -->
+                    <!-- deposit -->
                     <button data-id="${c.getId()}" id="deposit-on-account-modal-submit" type="submit" class="btn btn-primary"
                             data-dismiss="modal">Soumettre</button>
                 </div>

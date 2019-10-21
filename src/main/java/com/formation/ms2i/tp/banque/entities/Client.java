@@ -1,9 +1,7 @@
 package com.formation.ms2i.tp.banque.entities;
 
-import java.util.HashSet;
-import java.util.List;
 import javax.persistence.*;
-import java.awt.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -13,7 +11,7 @@ public class Client {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn
-    private Set<Compte> comptes = new HashSet<Compte>();
+    private Set<Compte> comptes = new HashSet<>();
 
 
     public Client() {
